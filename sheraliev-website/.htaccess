@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Редирект с http:// и www на https://sheraliev.kz
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^sheraliev\.kz [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://sheraliev.kz/$1 [R=301,L]
+
+# Редирект с m.sheraliev.kz на https://sheraliev.kz
+RewriteCond %{HTTP_HOST} ^m\.sheraliev\.kz$ [NC]
+RewriteRule ^(.*)$ https://sheraliev.kz/$1 [R=301,L]
